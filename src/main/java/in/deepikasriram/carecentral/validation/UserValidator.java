@@ -1,21 +1,30 @@
 package in.deepikasriram.carecentral.validation;
 
+import in.deepikasriram.carecentral.exception.ValidationException;
 import in.deepikasriram.carecentral.model.User;
-
+import in.deepikasriram.carecentral.util.StringUtil;
 
 public class UserValidator {
-	public static void validate(User user) throws Exception{
+	public static void validate(User user) throws ValidationException{
 		if(user == null) {
-			throw new Exception("Invalid user input");
+			throw new ValidationException("Invalid user input");
 		}
-		if(user.getEmailId()==null || "".equals(user.getEmailId().trim())) {
-			throw new Exception("email cannot be null or empty");
-		}
-		if(user.getPassword()==null || "".equals(user.getPassword().trim())) {
-			throw new Exception("password cannot be null or empty");
-		}
-		if(user.getFirstName()==null || "".equals(user.getFirstName().trim())) {
-			throw new Exception("first name cannot be null or empty");
-		}
+		
+		StringUtil.rejectIfInvalidString(user.getEmailId(), "email");
+//		if(user.getEmailId()==null || "".equals(user.getEmailId().trim())) {
+//			throw new ValidationException("email cannot be null or empty");
+//		}
+		
+		StringUtil.rejectIfInvalidString(user.getPassword(), "password");
+//		if(user.getPassword()==null || "".equals(user.getPassword().trim())) {
+//			throw new ValidationException("password cannot be null or empty");
+//		}
+		
+		
+		StringUtil.rejectIfInvalidString(user.getFirstName(), "first name");
+		
+//		if(user.getFirstName()==null || "".equals(user.getFirstName().trim())) {
+//			throw new ValidationException("first name cannot be null or empty");
+//		}
 	}
 }
