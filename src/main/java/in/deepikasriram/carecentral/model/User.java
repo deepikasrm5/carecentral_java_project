@@ -6,7 +6,7 @@ public class User {
 	String lastName;
 	String emailId;
 	String password;
-	boolean isActive;
+	boolean isActive = true;
 	
 	public int getUserId() {
 		return userId;
