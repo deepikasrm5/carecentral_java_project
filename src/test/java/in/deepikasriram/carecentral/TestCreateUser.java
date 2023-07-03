@@ -66,4 +66,27 @@ public class TestCreateUser {
 	}
 	
 	
+	@Test
+	public void testUserEmailWithEmptyString() {
+		UserService userService = new UserService();
+
+		User newUser = new User();
+		newUser.setUserId(12);
+		newUser.setFirstName("Deepika");
+		newUser.setLastName("Sriram");
+		newUser.setEmailId("");
+		newUser.setPassword("asdf***1234");
+		newUser.setActive(true);
+		
+		Exception exception = assertThrows(Exception.class,()->{
+			userService.create(newUser);
+		});
+		String expectedMessage = "email cannot be null or empty";
+		String receivedMessage = exception.getMessage();
+		
+		assertTrue(expectedMessage.equals(receivedMessage));
+	}
+	
+	
+	
 }
