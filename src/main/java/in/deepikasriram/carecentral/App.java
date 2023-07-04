@@ -2,6 +2,8 @@ package in.deepikasriram.carecentral;
 
 import in.deepikasriram.carecentral.model.User;
 import in.deepikasriram.carecentral.service.UserService;
+import in.deepikasriram.carecentral.model.Task;
+import in.deepikasriram.carecentral.service.TaskService;
 
 public class App {
 
@@ -25,22 +27,23 @@ public class App {
 			
 			e.printStackTrace();
 		}
-
-//		User newUser2 = new User();
-//		newUser2.setUserId(13);
-//		newUser2.setFirstName("Uthra");
-//		newUser2.setLastName("Boopathy");
-//		newUser2.setEmailId("uthra@gmail.com");
-//		newUser2.setPassword("qwerty67890");
-//		newUser2.setActive(true);
-//
-//		userObj.create(newUser2);
-//
-//		userService.getAll();
-//		userService.update();
-//		userService.getAll();
-//		userService.delete();
-//		userService.getAll();
+		
+		try {
+			TaskService taskService = new TaskService();
+			
+			Task newTask = new Task();
+			newTask.setId(01);
+			newTask.setTaskName("Java homework for tomorrow");
+			newTask.setDueDate("7/10/2023");
+			newTask.setActive(true);
+			
+			taskService.create(newTask);
+			taskService.getAll();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
+
 
 }
