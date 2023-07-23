@@ -1,69 +1,86 @@
 package in.deepikasriram.carecentral.dao;
 
-import in.deepikasriram.carecentral.model.Task;
+import java.time.LocalDate;
+import java.util.Set;
 
-public class TaskDAO {
-	public Task[] findAll() {
-		Task[] taskList = TaskList.listOfTasks; // collecting data from TaskList class.
+import in.deepikasriram.carecentral.interfaceFiles.TaskInterface;
+import in.deepikasriram.carecentral.model.*;
+
+public class TaskDAO implements TaskInterface{
+	
+	@Override
+	public Set<Task> findAll() {
+		Set<Task> taskList = TaskList.listOfTasks; // collecting data from TaskList class.
 		return taskList;
 	}
 	
-	public void create(Task newTask) {
-		Task[] taskList  = TaskList.listOfTasks;
+	
+	
+	@Override
+	public Task findById(int id) {
+		Set<Task> taskList  = TaskList.listOfTasks;		
+		for(Task task:taskList) {
+			if(task!= null &&task.getId() == id) {
+				return task;
+			}
+		}
+		return null;
 		
-		for(int i=0;i<taskList.length;i++) {
-			if(taskList[i]!=null) {
-				taskList[i] = newTask;
-				break;
+	}
+
+	@Override
+	public void delete(int id) {
+		Set<Task> taskList = TaskList.listOfTasks;
+		for(Task task:taskList) {
+			if(task != null && task.getId() == id) {
+				task.setActive(false);
 			}
 		}
 	}
-	public void update(int id, Task updatedTask) {
-		Task[] taskList  = TaskList.listOfTasks;
+
+	
+
+	@Override
+	public void sortByDate(LocalDate date) {
+		// TODO Auto-generated method stub
 		
-		for(int i=0;i<taskList.length;i++) {
-			Task task = taskList[i];
-			if(task==null) {
-				continue;
+	}
+
+	@Override
+	public int count() {
+		Set<Task> taskList = TaskList.listOfTasks;
+		int countOfTasks = 0;
+		for(Task task:taskList) {
+			if(task!= null) {
+				countOfTasks+=1;
 			}
+		}
+		
+		return countOfTasks;
+	}
+
+
+
+
+	@Override
+	public void update(int id, Task newT) {
+		Set<Task> taskList = TaskList.listOfTasks;
+		for(Task task:taskList) {
 			if(task.getId() == id) {
-				task.setTaskName(updatedTask.getTaskName());
-				task.setDueDate(updatedTask.getDueDate());
+				task.setId(task.getId());
+				task.setTaskName(task.getTaskName());
+				task.setDueDate(task.getDueDate());
 				task.setActive(true);
 				break;
 			}
 		}
 	}
-	public void delete(int id, Task updatedTask) {
-		Task[] taskList  = TaskList.listOfTasks;
-		
-		for(int i=0;i<taskList.length;i++) {
-			Task task = taskList[i];
-			if(task==null) {
-				continue;
-			}
-			if(task.getId() == id) {
-				
-				task.setActive(false);
-				break;
-			}
-		}
-		
-	}
-	public Task findById(int id) {
-		Task[] taskList  = TaskList.listOfTasks;
-		Task matchedTask = null;
-		
-		for(int i=0;i<taskList.length;i++) {
-			Task task = taskList[i];
-			if(task.getId() == id) {
-				matchedTask = task;
-				break;
-			}
-		}
-		System.out.println("Matched task is:"+matchedTask);
-		return matchedTask;
-		
+
+
+	@Override
+	public void create(Task newTask) {
+		Set<Task> taskList  = TaskList.listOfTasks;
+		taskList.add(newTask);
 	}
 	
 	

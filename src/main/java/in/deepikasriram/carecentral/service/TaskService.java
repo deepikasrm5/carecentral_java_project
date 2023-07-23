@@ -4,6 +4,7 @@ import in.deepikasriram.carecentral.model.Task;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Set;
 
 import in.deepikasriram.carecentral.dao.TaskDAO;
 import in.deepikasriram.carecentral.validation.TaskValidator;
@@ -23,20 +24,14 @@ public class TaskService {
 				LocalDate currDate = LocalDate.parse(dueDate , formatter);
 				return currDate;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 			return null;
 	}
 	
-	public Task[] getAll() {
+	public Set<Task> getAll() {
 		TaskDAO taskObj = new TaskDAO();
-		Task[] taskArray = taskObj.findAll();
-		
-		for(int i=0;i<taskArray.length;i++) {
-			System.out.println(taskArray[i]);
-			
-		}
+		Set<Task> taskArray = taskObj.findAll();
 		return taskArray;
 	}
 }

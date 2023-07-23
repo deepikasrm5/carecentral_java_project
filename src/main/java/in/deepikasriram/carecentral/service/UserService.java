@@ -3,12 +3,13 @@ package in.deepikasriram.carecentral.service;
 import java.util.Set;
 
 import in.deepikasriram.carecentral.dao.UserDAO;
+import in.deepikasriram.carecentral.exception.ValidationException;
 import in.deepikasriram.carecentral.model.*;
 import in.deepikasriram.carecentral.validation.UserValidator;
 
 public class UserService {
 	
-	public void create(User newUser) throws Exception{
+	public void create(User newUser) throws ValidationException{
 		
 		UserValidator.validate(newUser);
 		

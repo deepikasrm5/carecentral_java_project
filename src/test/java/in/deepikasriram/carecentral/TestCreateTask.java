@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import in.deepikasriram.carecentral.exception.ValidationException;
 import in.deepikasriram.carecentral.model.Task;
+import in.deepikasriram.carecentral.model.TaskEntity;
 import in.deepikasriram.carecentral.service.TaskService;
 
 public class TestCreateTask {

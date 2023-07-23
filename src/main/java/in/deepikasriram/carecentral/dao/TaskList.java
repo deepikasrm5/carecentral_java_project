@@ -1,8 +1,11 @@
 package in.deepikasriram.carecentral.dao;
-import in.deepikasriram.carecentral.model.Task;
+import java.util.HashSet;
+import java.util.Set;
+
+import in.deepikasriram.carecentral.model.*;
 
 public class TaskList {
 	
-	public static Task[] listOfTasks = new Task[10];
+	public static Set<Task> listOfTasks = new HashSet<Task>();
 
 }
