@@ -11,7 +11,7 @@ public class StringUtil {
 		}
 	}
 	
-	public static void rejectIfInvalidDate(LocalDate newdate,String inputName) throws ValidationException {
+	public static void rejectIfInvalidDate(LocalDate newdate,String inputName) throws Exception {
 		LocalDate currentDate = LocalDate.now();
 		if(newdate.isBefore(currentDate)) {
 			throw new ValidationException(inputName.concat(" cannot be past"));

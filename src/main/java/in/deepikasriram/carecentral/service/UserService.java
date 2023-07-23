@@ -1,7 +1,9 @@
 package in.deepikasriram.carecentral.service;
 
+import java.util.Set;
+
 import in.deepikasriram.carecentral.dao.UserDAO;
-import in.deepikasriram.carecentral.model.User;
+import in.deepikasriram.carecentral.model.*;
 import in.deepikasriram.carecentral.validation.UserValidator;
 
 public class UserService {
@@ -16,15 +18,9 @@ public class UserService {
 		
 	}
 	
-	public User[] getAll() {
+	public Set<User> getAll() {
 		UserDAO userObj = new UserDAO();
-		User[] userArray = userObj.findAll();
-		
-		for(int i=0;i<userArray.length;i++) {
-			System.out.println(userArray[i]);
-		}
-//		System.out.println(userArray);
-		
+		Set<User> userArray = userObj.findAll();
 		return userArray;
 	}
 	

@@ -22,7 +22,7 @@ public class TestCreateTask {
 		Task newTask = new Task();
 		newTask.setId(01);
 		newTask.setTaskName("Java homework");
-		String date = "04/07/2023";
+		String date = "07/08/2023";
 		LocalDate dueDate =	taskService.convertDate(date);
 		newTask.setDueDate(dueDate);
 		newTask.setActive(true);
@@ -52,7 +52,7 @@ public class TestCreateTask {
 		Task newTask = new Task();
 		newTask.setId(01);
 		newTask.setTaskName(null);
-		String date = "04/07/2023";
+		String date = "04/08/2023";
 		LocalDate dueDate =	taskService.convertDate(date);
 		newTask.setDueDate(dueDate);
 		newTask.setActive(true);
@@ -73,7 +73,7 @@ public class TestCreateTask {
 		newTask.setId(01);
 		newTask.setTaskName("");
 
-		String date = "04/07/2023";
+		String date = "04/08/2023";
 		LocalDate dueDate =	taskService.convertDate(date);
 		newTask.setDueDate(dueDate);
 		newTask.setActive(true);
@@ -93,7 +93,7 @@ public class TestCreateTask {
 		Task newTask = new Task();
 		newTask.setId(01);
 		newTask.setTaskName("Java homework");
-		String date = "04/07/2022";
+		String date = "21/02/2022";
 		LocalDate dueDate =	taskService.convertDate(date);
 		newTask.setDueDate(dueDate);
 		newTask.setActive(true);
