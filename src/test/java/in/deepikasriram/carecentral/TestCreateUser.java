@@ -19,12 +19,12 @@ public class TestCreateUser {
 		UserService userService = new UserService();
 
 		User newUser = new User();
-		newUser.setUserId(12);
+		
 		newUser.setFirstName("Deepika");
 		newUser.setLastName("Sriram");
-		newUser.setEmailId("deepika@gmail.com");
+		newUser.setEmailId("d@gmail.com");
 		newUser.setPassword("asdf***1234");
-		newUser.setActive(true);
+		
 
 		
 		assertDoesNotThrow(()->{
@@ -32,6 +32,8 @@ public class TestCreateUser {
 		});
 		
 	}
+	
+	
 	
 	@Test
 	public void testCreateUserWithInvalidInput() {
@@ -51,12 +53,10 @@ public class TestCreateUser {
 		UserService userService = new UserService();
 
 		User newUser = new User();
-		newUser.setUserId(12);
 		newUser.setFirstName("Deepika");
 		newUser.setLastName("Sriram");
 		newUser.setEmailId(null);
 		newUser.setPassword("asdf***1234");
-		newUser.setActive(true);
 		
 		Exception exception = assertThrows(ValidationException.class,()->{
 			userService.create(newUser);
@@ -73,12 +73,12 @@ public class TestCreateUser {
 		UserService userService = new UserService();
 
 		User newUser = new User();
-		newUser.setUserId(12);
+
 		newUser.setFirstName("Deepika");
 		newUser.setLastName("Sriram");
 		newUser.setEmailId("");
 		newUser.setPassword("asdf***1234");
-		newUser.setActive(true);
+	
 		
 		Exception exception = assertThrows(ValidationException.class,()->{
 			userService.create(newUser);
@@ -96,12 +96,10 @@ public class TestCreateUser {
 		UserService userService = new UserService();
 
 		User newUser = new User();
-		newUser.setUserId(12);
 		newUser.setFirstName("Deepika");
 		newUser.setLastName("Sriram");
 		newUser.setEmailId("deepika.sriram@fssa.freshworks.com");
 		newUser.setPassword(null);
-		newUser.setActive(true);
 		
 		Exception exception = assertThrows(ValidationException.class,()->{
 			userService.create(newUser);
@@ -117,12 +115,10 @@ public class TestCreateUser {
 		UserService userService = new UserService();
 
 		User newUser = new User();
-		newUser.setUserId(12);
 		newUser.setFirstName("Deepika");
 		newUser.setLastName("Sriram");
 		newUser.setEmailId("deepika.sriram@fssa.frehsworks.com");
 		newUser.setPassword("");
-		newUser.setActive(true);
 		
 		Exception exception = assertThrows(ValidationException.class,()->{
 			userService.create(newUser);
@@ -138,12 +134,10 @@ public class TestCreateUser {
 		UserService userService = new UserService();
 
 		User newUser = new User();
-		newUser.setUserId(12);
 		newUser.setFirstName(null);
 		newUser.setLastName("Sriram");
 		newUser.setEmailId("deepika.sriram@fssa.freshworks.com");
 		newUser.setPassword("asdf***1234");
-		newUser.setActive(true);
 		
 		Exception exception = assertThrows(ValidationException.class,()->{
 			userService.create(newUser);
@@ -159,12 +153,10 @@ public class TestCreateUser {
 		UserService userService = new UserService();
 
 		User newUser = new User();
-		newUser.setUserId(12);
 		newUser.setFirstName("");
 		newUser.setLastName("Sriram");
 		newUser.setEmailId("deepika.sriram@fssa.freshworks.com");
 		newUser.setPassword("asdf***1234");
-		newUser.setActive(true);
 		
 		Exception exception = assertThrows(ValidationException.class,()->{
 			userService.create(newUser);

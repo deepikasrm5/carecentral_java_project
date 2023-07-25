@@ -47,4 +47,10 @@ public class UserService {
 		UserDAO userObj = new UserDAO();
 		userObj.delete(12);
 	}
+	
+	public User getById(int userId) {
+		UserDAO userObj = new UserDAO();
+		return userObj.findById(userId);
+		
+	}
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.deepikasriram.carecentral.TestCreateUser" time="0.001" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.deepikasriram.carecentral.TestCreateTask" time="0.107" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,12 +58,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="in.deepikasriram.carecentral.TestCreateUser.testCreateUserWithValidInput" classname="in.deepikasriram.carecentral.TestCreateUser" time="0"/>
-  <testcase name="in.deepikasriram.carecentral.TestCreateUser.testCreateUserWithInvalidInput" classname="in.deepikasriram.carecentral.TestCreateUser" time="0"/>
-  <testcase name="in.deepikasriram.carecentral.TestCreateUser.testUserEmailWithEmptyString" classname="in.deepikasriram.carecentral.TestCreateUser" time="0"/>
-  <testcase name="in.deepikasriram.carecentral.TestCreateUser.testPasswordWithNull" classname="in.deepikasriram.carecentral.TestCreateUser" time="0"/>
-  <testcase name="in.deepikasriram.carecentral.TestCreateUser.testPasswordWithEmptyString" classname="in.deepikasriram.carecentral.TestCreateUser" time="0"/>
-  <testcase name="in.deepikasriram.carecentral.TestCreateUser.testFirstNameWithNull" classname="in.deepikasriram.carecentral.TestCreateUser" time="0"/>
-  <testcase name="in.deepikasriram.carecentral.TestCreateUser.testFirstNameWithEmptyString" classname="in.deepikasriram.carecentral.TestCreateUser" time="0"/>
-  <testcase name="in.deepikasriram.carecentral.TestCreateUser.testUserEmailWithNull" classname="in.deepikasriram.carecentral.TestCreateUser" time="0"/>
+  <testcase name="in.deepikasriram.carecentral.TestCreateTask.testTaskNameWithNull" classname="in.deepikasriram.carecentral.TestCreateTask" time="0.074"/>
+  <testcase name="in.deepikasriram.carecentral.TestCreateTask.testDueDateWithInvalidDate" classname="in.deepikasriram.carecentral.TestCreateTask" time="0.018"/>
+  <testcase name="in.deepikasriram.carecentral.TestCreateTask.testTaskWithEmptyString" classname="in.deepikasriram.carecentral.TestCreateTask" time="0"/>
+  <testcase name="in.deepikasriram.carecentral.TestCreateTask.testCreateTaskWithValidInput" classname="in.deepikasriram.carecentral.TestCreateTask" time="0.007"/>
+  <testcase name="in.deepikasriram.carecentral.TestCreateTask.testCreateTaskWithInvalidInput" classname="in.deepikasriram.carecentral.TestCreateTask" time="0.002"/>
 </testsuite>
