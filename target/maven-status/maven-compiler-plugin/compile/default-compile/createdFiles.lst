@@ -16,3 +16,4 @@ in\deepikasriram\carecentral\interfaceFiles\Base.class
 in\deepikasriram\carecentral\exception\ValidationException.class
 in\deepikasriram\carecentral\util\StringUtil.class
 in\deepikasriram\carecentral\dao\TaskDAO.class
+in\deepikasriram\carecentral\util\ConnectionUtil.class

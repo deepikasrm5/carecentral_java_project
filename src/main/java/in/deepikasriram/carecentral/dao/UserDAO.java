@@ -13,8 +13,6 @@ import in.deepikasriram.carecentral.util.ConnectionUtil;
 
 public class UserDAO implements UserInterface{
 
-
-
 	@Override
 	public Set<User> findAll() throws RuntimeException{
 //		Set<User> userList = UserList.listOfUsers; // collecting data from UserList class.
@@ -92,16 +90,39 @@ public class UserDAO implements UserInterface{
 
 	@Override
 	public void update(int id , User  updatedUser) {
-		Set<User> userList = UserList.listOfUsers;
-		for(User user:userList) {
-			if(user.getUserId() == id) {
-				user.setFirstName(updatedUser.getFirstName());
-				user.setLastName(updatedUser.getLastName());
-				user.setEmailId(updatedUser.getEmailId());
-				user.setPassword(updatedUser.getPassword());
-				user.setActive(true);
-				break;
-			}
+//		Set<User> userList = UserList.listOfUsers;
+//		for(User user:userList) {
+//			if(user.getUserId() == id) {
+//				user.setFirstName(updatedUser.getFirstName());
+//				user.setLastName(updatedUser.getLastName());
+//				user.setEmailId(updatedUser.getEmailId());
+//				user.setPassword(updatedUser.getPassword());
+//				user.setActive(true);
+//				break;
+//			}
+//		}
+		
+		
+		Connection con = null;
+		PreparedStatement ps = null;
+		try {
+			String query = "UPDATE User SET first_name = ? last_name = ? WHERE id = ?";
+			con = ConnectionUtil.getConnection();
+			ps = con.prepareStatement(query);
+			
+			ps.setString(1, updatedUser.getFirstName());
+			ps.setString(2, updatedUser.getLastName());
+			ps.setInt(3, id);
+			
+			ps.executeUpdate();
+			
+			System.out.println("User has been updated successfully");
+		}catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			throw new RuntimeException(e);
+		}finally {
+			ConnectionUtil.close(con, ps);
 		}
 	}
 

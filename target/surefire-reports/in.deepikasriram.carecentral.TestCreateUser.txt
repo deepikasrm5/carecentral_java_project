@@ -1,4 +1,28 @@
 -------------------------------------------------------------------------------
 Test set: in.deepikasriram.carecentral.TestCreateUser
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in in.deepikasriram.carecentral.TestCreateUser
+Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.979 s <<< FAILURE! - in in.deepikasriram.carecentral.TestCreateUser
+in.deepikasriram.carecentral.TestCreateUser.testCreateUserWithValidInput()  Time elapsed: 2.977 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.RuntimeException: java.sql.SQLIntegrityConstraintViolationException: target: corejava_project.-.primary: vttablet: rpc error: code = AlreadyExists desc = Duplicate entry 'd@gmail.com' for key 'Users.email' (errno 1062) (sqlstate 23000) (CallerID: 14k414ydwm6qjrh0jw9l): Sql: "insert into Users(first_name, last_name, email, `password`) values (:vtg1 /* VARCHAR */, :vtg2 /* VARCHAR */, :vtg3 /* VARCHAR */, :vtg4 /* VARCHAR */)", BindVars: {REDACTED}
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
+	at in.deepikasriram.carecentral.TestCreateUser.testCreateUserWithValidInput(TestCreateUser.java:30)
+Caused by: java.lang.RuntimeException: java.sql.SQLIntegrityConstraintViolationException: target: corejava_project.-.primary: vttablet: rpc error: code = AlreadyExists desc = Duplicate entry 'd@gmail.com' for key 'Users.email' (errno 1062) (sqlstate 23000) (CallerID: 14k414ydwm6qjrh0jw9l): Sql: "insert into Users(first_name, last_name, email, `password`) values (:vtg1 /* VARCHAR */, :vtg2 /* VARCHAR */, :vtg3 /* VARCHAR */, :vtg4 /* VARCHAR */)", BindVars: {REDACTED}
+	at in.deepikasriram.carecentral.dao.UserDAO.create(UserDAO.java:82)
+	at in.deepikasriram.carecentral.service.UserService.create(UserService.java:17)
+	at in.deepikasriram.carecentral.TestCreateUser.lambda$testCreateUserWithValidInput$0(TestCreateUser.java:31)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
+	... 16 more
+Caused by: java.sql.SQLIntegrityConstraintViolationException: target: corejava_project.-.primary: vttablet: rpc error: code = AlreadyExists desc = Duplicate entry 'd@gmail.com' for key 'Users.email' (errno 1062) (sqlstate 23000) (CallerID: 14k414ydwm6qjrh0jw9l): Sql: "insert into Users(first_name, last_name, email, `password`) values (:vtg1 /* VARCHAR */, :vtg2 /* VARCHAR */, :vtg3 /* VARCHAR */, :vtg4 /* VARCHAR */)", BindVars: {REDACTED}
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1098)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1046)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1371)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1031)
+	at in.deepikasriram.carecentral.dao.UserDAO.create(UserDAO.java:74)
+	... 19 more
+

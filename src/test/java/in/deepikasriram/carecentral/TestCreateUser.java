@@ -22,7 +22,7 @@ public class TestCreateUser {
 		
 		newUser.setFirstName("Deepika");
 		newUser.setLastName("Sriram");
-		newUser.setEmailId("d@gmail.com");
+		newUser.setEmailId("janaki@gmail.com");
 		newUser.setPassword("asdf***1234");
 		
 
